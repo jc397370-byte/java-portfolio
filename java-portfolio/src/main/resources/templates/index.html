@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title th:text="${name} + ' | Java Developer'">Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+    <div class="nav-logo">&lt;AJ/&gt;</div>
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-tag">Spring Boot · REST API · Git · CI/CD</div>
+    <h1 class="hero-name" th:text="${name}">Alex Johnson</h1>
+    <h2 class="hero-title" th:text="${title}">Full Stack Java Developer</h2>
+    <div class="hero-cta">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-outline">Hire Me</a>
+    </div>
+    <div class="hero-code">
+        <span class="code-line"><span class="kw">@SpringBootApplication</span></span>
+        <span class="code-line"><span class="kw">public class</span> <span class="cls">Developer</span> {</span>
+        <span class="code-line">  <span class="kw">public static void</span> <span class="fn">main</span>() {</span>
+        <span class="code-line">    <span class="cls">SpringApplication</span>.<span class="fn">run</span>(<span class="str">"passion"</span>);</span>
+        <span class="code-line">  }</span>
+        <span class="code-line">}</span>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="section-label">01 — About</div>
+        <h2 class="section-title">Who I Am</h2>
+        <p class="about-text" th:text="${about}">About text here.</p>
+        <div class="stat-row">
+            <div class="stat"><span class="stat-num">3+</span><span class="stat-label">Years Experience</span></div>
+            <div class="stat"><span class="stat-num">15+</span><span class="stat-label">Projects Shipped</span></div>
+            <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Git Version Control</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section section-dark" id="skills">
+    <div class="container">
+        <div class="section-label">02 — Skills</div>
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="skills-grid">
+            <div class="skill-tag" th:each="skill : ${skills}" th:text="${skill}">Skill</div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+    <div class="container">
+        <div class="section-label">03 — Projects</div>
+        <h2 class="section-title">Featured Work</h2>
+        <div class="projects-grid">
+            <div class="project-card" th:each="project : ${projects}">
+                <div class="project-num">★</div>
+                <h3 class="project-name" th:text="${project.name()}">Project Name</h3>
+                <p class="project-desc" th:text="${project.description()}">Description</p>
+                <div class="project-tech" th:text="${project.tech()}">Tech stack</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-dark" id="contact">
+    <div class="container contact-container">
+        <div class="section-label">04 — Contact</div>
+        <h2 class="section-title">Let's Build Together</h2>
+        <p class="contact-sub">Open to full-time roles & freelance Java projects.</p>
+        <div class="contact-links">
+            <a href="mailto:alex@example.com" class="btn-primary">📧 Email Me</a>
+            <a href="https://github.com" class="btn-outline" target="_blank">🐙 GitHub</a>
+            <a href="https://linkedin.com" class="btn-outline" target="_blank">💼 LinkedIn</a>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <span>Built with ☕ Java + Spring Boot · Deployed via Git CI/CD</span>
+</footer>
+
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>
